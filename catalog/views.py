@@ -13,3 +13,11 @@ def contacts(request):
 
         return HttpResponse(f"Спасибо, {name}! Сообщение получено.")
     return render(request, '/contact.html')
+
+
+def product(request):
+    pass
+
+
+def category(request):
+    pass
