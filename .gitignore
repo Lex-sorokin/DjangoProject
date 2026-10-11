@@ -17,6 +17,7 @@ venv/
 env/
 .venv/
 .env/
+.env
 
 # VS Code and PyCharm settings
 .vscode/
