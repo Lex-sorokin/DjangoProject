@@ -18,6 +18,8 @@ env/
 .venv/
 .env/
 .env
+env
+*env
 
 # VS Code and PyCharm settings
 .vscode/
