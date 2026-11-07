@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+{% load my_tags %}
+{% block content %}
+<div style="padding-left: 210px;">
+<h1>{{ post.title }}</h1>
+
+<p>Создано: {{ post.created_at }}</p>
+<p>Просмотров: {{ post.views }}</p>
+<p>Опубликовано: {{ post.is_published|yesno:"Да,Нет" }}</p>
+
+{% if post.preview %}
+<img src="{{ post.preview.url }}" alt="{{ post.title }}" width="400">
+{% endif %}
+
+<div>{{ post.content|linebreaks }}</div>
+
+<a href="{% url 'blog:update' post.pk %}" class="btn btn-primary my-2">Изменить</a>
+<a href="{% url 'blog:delete' post.pk %}" class="btn btn-danger  my-2">Удалить</a>
+<a href="{% url 'blog:list' %}" class="btn btn-secondary  my-2">К списку записей</a>
+</div>
+{% endblock %}
