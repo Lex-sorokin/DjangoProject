@@ -83,7 +83,7 @@
         </li>
     </ul>
 </div>
-{% include 'includes/inc_menu.html' %}
+{% include 'catalog/includes/inc_menu.html' %}
 <main>
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
@@ -91,7 +91,12 @@
                 <p class="lead text-body-secondary">Если в поисках того что вам нужно вы долистали до 358 страницы
                     яндекса и всё равно не нашли что искали, то вам в "Наш магазинчик"</p>
                 <p><a href="#" class="btn btn-primary my-2">Синяя кнопушка</a> <a href="#" class="btn btn-secondary my-2">
-                    Серая кнопушка</a></p></div>
+                    Серая кнопушка</a>
+                </p>
+                <p>
+                    <a class="btn btn-primary" href="{% url 'catalog:product_create' %}" role="button">Добавить товар</a>
+                </p>
+            </div>
         </div>
     </section>
 

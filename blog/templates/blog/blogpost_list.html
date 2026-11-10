@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% load my_tags %}
+{% block content %}
+<div style="padding-left: 210px;">
+<h1>Блог</h1>
+
+{% for post in posts %}
+    <article>
+        <h2>
+            <a href="{% url 'blog:detail' post.pk %}">
+                {{ post.title }}
+            </a>
+        </h2>
+
+        <p>Создано: {{ post.created_at }}</p>
+        <p>Опубликовано: {{ post.is_published|yesno:"Да,Нет" }}</p>
+        <p>Просмотров: {{ post.views }}</p>
+
+        {% if post.preview %}
+            <img src="{{ post.preview.url }}" alt="{{ post.title }}" width="200">
+        {% endif %}
+        <a href="{% url 'blog:update' post.pk %}" class="btn btn-primary my-2">Изменить</a>
+        <a href="{% url 'blog:delete' post.pk %}" class="btn btn-danger  my-2">Удалить</a>
+    </article>
+{% empty %}
+    <p>Записей пока нет.</p>
+</div>
+{% endfor %}
+{% endblock %}
