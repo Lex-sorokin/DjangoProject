@@ -1,10 +1,9 @@
-from IPython.core.guarded_eval import DoesNotHaveGetAttr
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, View
-
 from catalog.models import Product
+from catalog.forms import ProductForm
 
 class ContactView(View):
     template_name = "catalog/contacts.html"
@@ -30,13 +29,13 @@ class ProductDetailView(DetailView):
 
 class ProductCreateView(CreateView):
     model = Product
-    fields = ("name", 'description', 'images', 'category', 'price')
+    form_class = ProductForm
     success_url = reverse_lazy('catalog:product_list')
 
 
 class ProductUpdateView(UpdateView):
     model = Product
-    fields = ("name", 'description', 'images', 'category', 'price')
+    form_class = ProductForm
     success_url = reverse_lazy('catalog:product_list')
 
 
